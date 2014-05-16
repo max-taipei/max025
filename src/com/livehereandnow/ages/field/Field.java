@@ -520,15 +520,42 @@ public class Field {
             for (AgesCard card : 農場區) {
                 if (card.getId() == id) {
                     card.setTokenYellow(card.getTokenYellow() + 1);
+                    this.工人區_黃點.addPoints(-1);
 //                    System.out.println(" " + key + " " + getSameSizeName(card.getName()) + " " + card.getAction());
                 }
             }
             for (AgesCard card : 礦山區) {
                 if (card.getId() == id) {
                     card.setTokenYellow(card.getTokenYellow() + 1);
+                    this.工人區_黃點.addPoints(-1);
 //                    System.out.println(" " + key + " " + getSameSizeName(card.getName()) + " " + card.getAction());
                 }
             }
+        }
+        public void 摧毀(int id) {
+            System.out.println("這是在player裡面的");
+//            this.農場區.get(0).setTokenYellow(this.農場區.get(0).getTokenYellow() + 1);
+            for (AgesCard card : 農場區) {
+                if (card.getId() == id) {
+                    card.setTokenYellow(card.getTokenYellow() - 1);
+                    this.工人區_黃點.addPoints(1);
+//                    System.out.println(" " + key + " " + getSameSizeName(card.getName()) + " " + card.getAction());
+                }
+            }
+            for (AgesCard card : 礦山區) {
+                if (card.getId() == id) {
+                    card.setTokenYellow(card.getTokenYellow() - 1);
+                    this.工人區_黃點.addPoints(1);
+//                    System.out.println(" " + key + " " + getSameSizeName(card.getName()) + " " + card.getAction());
+                }
+            }
+        }
+        public void 擴充人口() {
+            System.out.println("現在要擴充人口了");
+//            this.農場區.get(0).setTokenYellow(this.農場區.get(0).getTokenYellow() + 1);
+        this.人力庫_黃點.addPoints(-1);
+        this.工人區_黃點.addPoints(1);
+            
         }
 
         private String name;
